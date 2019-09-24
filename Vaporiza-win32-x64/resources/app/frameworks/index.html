@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-br">
+    <script src="./Chart.js"></script>
+    <script src="./grafico.js"></script>
+    <body>
+        <button onclick="criarGrafico()">Gerar Gráfico de Escala</button>
+        <button onclick="criarGraficoDemonstrativo()">Gerar Gráfico Demonstrativo</button>
+        <button onclick="criarGraficoDemonstrativoDoisEixos()">Gerar Gráfico Demonstrativo com 2 Eixos</button>
+        <button onclick="criarGraficoEscalaDoisEixos()">Gerar Gráfico de Escala com 2 Eixos</button>
+        <div id="desenho"></div>
+    </body>
+    <script>
+        const grafico = new Grafico();
+        grafico.setPai('desenho');
+
+        function criarGraficoEscalaDoisEixos() {}
+
+        function criarGraficoDemonstrativoDoisEixos() {
+            const dias = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'];
+            const vacas = [1, 2, 5, 1, 2];
+            const galinhas = [5, 5, 6, 7, 8];
+            const construcoes = [10, 15, 13, 25, 50];
+            const tipoExibicao = ['line', 'line', 'line'];
+            const eixo = ['1', '1', '2'];
+
+            // Cria o gráfico
+            const config = {
+                cores: ['rgb(255,0,0)', 'rgb(0,255,0)', 'rgb(0,0,255)'],
+                legendas: ['Vacas', 'Galinhas', 'Construções'],
+                valoresY: [vacas, galinhas, construcoes],
+                tituloEixoX: 'Dias da Semana',
+                tituloEixoY1: 'Número de animais',
+                tituloEixoY2: 'Número de construções',
+                tipoGrafico: 'demonstrativo-2-eixo',
+                tipoExibicao,
+                valoresX: dias,
+                minY1: 0,
+                minY2: 0,
+                maxY2: 60,
+                eixo
+            };
+            grafico.criar(config);
+        }
+
+        function criarGraficoDemonstrativo() {
+            const dias = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'];
+            const vacas = [1, 2, 5, 1, 2];
+            const galinhas = [5, 5, 6, 7, 8];
+            const tipoExibicao = ['bar', 'bar'];
+
+            // Cria o gráfico
+            const config = {
+                cores: ['rgb(255,0,0)', 'rgb(0,255,0)'],
+                legendas: ['Vacas', 'Galinhas'],
+                valoresY: [vacas, galinhas],
+                tituloEixoX: 'Dias da Semana',
+                tituloEixoY: 'Número de animais',
+                tipoGrafico: 'demonstrativo-1-eixo',
+                tipoExibicao,
+                valoresX: dias,
+                minY: 0
+            };
+            grafico.criar(config);
+        }
+
+        function criarGrafico() {
+
+            // Datasets para gráficos com escala
+            const minX = -5;
+            const maxX = 10;
+            const intervalo = 300;
+            const passo = (maxX - minX) / intervalo;
+            const func1X = [];
+            const func1Y = [];
+            const pontos2X = [-1,0,1,2,3,4,5,6,7,8];
+            const pontos2Y = [0,1,2,3,4,5,6,7,8,9];
+            const func3X = [];
+            const func3Y = [];
+            for(let i = 0; i <= intervalo; i++) {
+                let x = minX + i * passo;
+                func1X.push(x);
+                func1Y.push(x * 2 + 1);
+                func3X.push(x);
+                func3Y.push(x * x + 3 * x - 1);
+            }
+
+            // Cria o gráfico
+            const config = {
+                cores: ['rgb(255,0,0)', 'rgb(0,255,0)', 'rgb(0,0,255)'],
+                legendas: ['Função linear', 'Sequência de pontos', 'Função quadrática'],
+                linhas: [true, false, true],
+                pontos: [false, true, false],
+                valoresX: [func1X, pontos2X, func3X],
+                valoresY: [func1Y, pontos2Y, func3Y],
+                minX,
+                //minY: -1,
+                maxX,
+                maxY: 10,
+                tituloEixoX: 'Eixo X',
+                tituloEixoY: 'Eixo Y',
+                tipoGrafico: 'escala-1-eixo'
+            };
+            grafico.criar(config);
+        }
+    </script>
+</html>

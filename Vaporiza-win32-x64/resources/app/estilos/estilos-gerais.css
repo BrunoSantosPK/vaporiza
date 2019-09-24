@@ -1,0 +1,104 @@
+/* Fontes externas */
+@font-face { font-family: ibm; src: url('../fontes/IBMPlexSans-Regular.ttf'); }
+@font-face { font-family: rele; src: url('../fontes/Raleway-Regular.ttf'); }
+
+/* Classes de dimensionamento de janelas */
+.box { margin: 0; background-color: rgb(250,250,250); }
+.janela { display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0; }
+.largura { width: 1000px; }
+.janela-apresentacao { height: 70vh; justify-content: flex-end; }
+.janela-secao { margin-top: 25px; padding-bottom: 30px; }
+.janela-formulario { display: flex; flex-direction: row; flex: 1; margin-top: 30px; align-items: center; }
+@media (max-width: 1000px) {
+    .janela-apresentacao { width: 1000px; flex: 1; }
+    .janela-secao { width: 1000px; flex: 1; }
+}
+
+/* Diagramação da barra de menu superior */
+.menu-principal { display: flex; flex-direction: row; justify-content: space-around; width: 100vw; }
+.fonte-menu-principal { font-size: 20px; font-family: ibm; }
+.item-menu { padding: 15px 20px 15px 20px; cursor: pointer; }
+.item-menu-ativo { color: rgb(225,123,44); }
+@media (max-width: 1000px) {
+    .menu-principal { width: 1000px; flex: 1; }
+}
+
+/* Elementos da tela de login */
+.janela-login { width: 500px; height: 90vh; }
+.logo-login { padding-top: 70px; padding-bottom: 100px; }
+.formulario-login { margin-top: 15px; }
+.input-login { padding: 5px 20px 5px 20px; border-style: unset; width: 300px; }
+.fonte-input-login { font-size: 20px; font-family: ibm; }
+.botao-login { cursor: pointer; width: 180px; margin-top: 30px; text-align: center; padding: 5px 0 5px 0; }
+.fonte-botao-login { font-size: 20px; font-family: ibm; }
+
+/* Palheta de cores - background */
+.alerta-fundo { background-color: rgb(225,123,44); }
+.confirmacao-fundo { background-color: rgb(0,150,64); }
+.aba-fundo { background-color: rgb(124,52,83); }
+.header-fundo { background-color: rgb(232,231,232); }
+.header-tabela { background-color: rgb(158,158,158) }
+
+/* Palheta de cores - fontes */
+.fonte-branca { color: rgb(255,255,255); }
+.fonte-laranja { color: rgb(225,123,44); }
+.fonte-cinza-escuro { color: rgb(68,67,67); }
+.fonte-roxa { color: rgb(135,20,83); }
+
+/* Diagramação básica das seções */
+.titulo-secao { font-size: 25px; font-family: ibm; }
+.texto-label { font-size: 18px; font-family: ibm; margin-right: 10px; }
+.recuo-label { margin-left: 25px; }
+.recuo-titulo { margin-top: 60px; }
+.recuo-conteudo { margin-top: 30px; }
+.fim-secao { padding-bottom: 30px; }
+.texto-input { font-size: 16px; font-family: ibm; }
+.input-simples { padding: 5px 10px 5px 10px; outline: none; text-align: center; }
+.icone { cursor: pointer; }
+.botao-geral { cursor: pointer; width: 180px; margin-top: 30px; text-align: center; padding: 5px 0 5px 0; }
+.texto-botao { font-size: 24px; font-family: rele; }
+.secao-tabela { width: 900px; text-align: center; }
+.texto-tabela { font-size: 18px; font-family: ibm; }
+.celula-tabela { border-collapse: inherit; padding: 10px 0 10px 0; border-bottom: 3px rgb(255,255,255) solid }
+
+/* Diagramação da seção de cadastro de produção */
+.caixa-info-producao { width: 800px; }
+.label-producao { font-size: 18px; font-family: ibm; margin-right: 10px; width: 311px; }
+.input-producao { padding: 5px 10px 5px 10px; outline: none; width: 100%; }
+.input-producao-data { padding: 5px 0px 5px 10px; outline: none; width: 215px; }
+.botao-producao { width: 300px; }
+.form-botoes-producao { justify-content: space-between; }
+.area-cadastro-producao { border-top: 2px rgb(230,230,230) solid; width: 950px; padding-bottom: 30px; }
+.form-dia-producao { justify-content: space-around;  }
+.separador-dia-producao { border-bottom: 2px rgb(255,255,255) solid; }
+.box-dia-producao { padding: 5px 20px 10px 20px; margin: 15px 0 5px 0; }
+.f-m-d-p { margin-top: 0px; }
+.fonte-producao-dia { font-family: ibm; font-size: 21px; }
+.fonte-producao-check { font-size: 15px; font-family: ibm; }
+.recuo-check { margin-top: 5px; }
+.recuo-separador { padding-bottom: 15px }
+.select-produtos-producao { flex: 0.6; }
+
+/* Diagramação da seção de parâmetros */
+.secao-drop { padding: 10px; margin: 20px 0px 0px 10px; width: 800px; }
+.drop-aba { background-color: rgb(135,20,83); }
+.drop-conteudo { border: 1px rgb(225,225,255) solid; }
+.label-drop-parametros { font-size: 20px; flex: 1; text-align: center; font-family: ibm; }
+.espacamento-label-drop { justify-content: space-between; }
+.texto-parametros { font-family: ibm; font-size: 17px; }
+.input-parametros { padding: 5px 10px 5px 10px; outline: none; }
+.form-parametros { width: 100%; justify-content: space-between; margin-top: 10px; padding-bottom: 10px; }
+.secao-tabela-parametros { width: 700px; margin-top: 30px; text-align: center; }
+.espacamento-botoes-parametros { justify-content: space-around; }
+.botao-parametros { width: 250px; }
+
+/* Classes de visualização */
+.oculta { display: none; }
+
+/* Classes de posicionamento */
+.centralizar-tudo { justify-content: center; align-items: center; display: flex; flex-direction: column; }
+.altura-total { height: 100%; }
+.centralizar-horizontal { align-items: center; justify-content: center; }
+.direita { text-align: right !important; }
+.esquerda { text-align: left !important; }
+.centro { text-align: center !important; }

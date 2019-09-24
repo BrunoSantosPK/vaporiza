@@ -1,0 +1,26 @@
+@font-face { font-family: ibm; src: url('./IBMPlexSans-Regular.ttf'); }
+
+.pagina { width: 794px; background-color: rgb(255,255,255); }
+.display { display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.linha { display: flex; flex-direction: column; }
+.centro-horizontal { align-items: center; }
+.centro { align-items: center; justify-content: center; }
+
+/* Barra inicial */
+.cabecalho { display: flex; flex-direction:row; justify-content: space-around; align-items: center; }
+.texto-logo { font-size: 28px; font-family: ibm; }
+.recuo-inicio { margin-bottom: 30px; }
+
+/* Conteúdo da página */
+.titulo-geral { text-align: center; font-size: 25px; font-family: ibm; }
+.subtitulo-geral { text-align: justify; font-size: 23px; font-family: ibm; }
+.texto-geral { text-align: justify; font-size: 20px; font-family: ibm; }
+.titulo-tabela { text-align: justify; font-size: 17px; font-family: ibm; }
+
+/* Diagramação de tabela */
+.tabela { width: 100%; text-align: center; font-family: ibm; font-size: 18px; margin-bottom: 30px; }
+.celula-titulo { background-color: rgb(50,50,50); color: rgb(255,255,255); padding: 5px 0px 5px 0px; }
+.celula-comum { color: rgb(0,0,0); padding: 5px 0px 5px 0px; border: 2px rgb(200,200,200) solid; }
+
+/* Diagramação de gráficos */
+.div-grafico { display: flex; justify-content: center; align-items: center; }
