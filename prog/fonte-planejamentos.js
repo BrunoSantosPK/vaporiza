@@ -97,6 +97,9 @@ function abrir_planejamento(posicao) {
     // Título, período, dias cadastrados, dias parados e observações
     gerar_apresentacao(planejamento, conteudo.elementos);
 
+    // Parâmetros internos, de cálculo
+    gerar_parametros_calculo(planejamento, conteudo.elementos);
+
     // Tabela: data, produtos, critérios de projeto, vapor total do dia
     gerar_producao(planejamento, conteudo.elementos);
 
@@ -150,6 +153,49 @@ function gerar_apresentacao(planejamento, lista) {
         legenda: false,
         rotulos: ["Observações"],
         linhas: [[observacoes]]
+    });
+}
+
+function gerar_parametros_calculo(planejamento, lista) {
+    // Recupera informações dos parâmetros
+    //{"nome":"Vaporiza","pci":9623.2,"ftChuva":10,"ftUmidade":5,"ftFrio":15,"tempAgua":40,"pressVapor":490.332,"eficiencia":80,"responsavel":"Bruno Santos","combustivel":"Eucalipto"}
+    const { pci, ftChuva, ftUmidade, ftFrio, tempAgua, pressVapor, eficiencia, responsavel, combustivel, nome } = planejamento.parametros;
+
+    /*const nome = planejamento.nome;
+    const dias = `${planejamento.dias.length} (${planejamento.feriados} feriados)`;
+    const observacoes = planejamento.observacoes;
+    let periodo = planejamento.periodo.split('->');
+    let inicio = periodo[0].split('-');
+    let fim = periodo[1].split('-');
+    periodo = `${inicio[2]}/${inicio[1]}/${inicio[0]} até ${fim[2]}/${fim[1]}/${fim[0]}`;*/
+
+    // Preenche a lista de elementos a serem criados na tela
+    lista.push({
+        tipo: "tabela",
+        legenda: true,
+        titulo: "Dados da Empresa",
+        rotulos: ["Nome", "Responsável"],
+        linhas: [[nome, responsavel]]
+    });
+    lista.push({
+        tipo: "tabela",
+        legenda: true,
+        titulo: "Geração de Vapor",
+        rotulos: ["Combustível", "PCI (kJ/kg)", "Temp. Água (°C)", "Pressão Vapor (kPa)", "Eficiência Caldeir (%)"],
+        linhas: [[combustivel,
+            pci.toString().replace(".", ","),
+            tempAgua.toString().replace(".", ","),
+            pressVapor.toString().replace(".", ","),
+            eficiencia.toString().replace(".", ",")]]
+    });
+    lista.push({
+        tipo: "tabela",
+        legenda: true,
+        titulo: "Parâmetros de Projeto",
+        rotulos: ["Dias com Chuva (%)", "Dias Frios (%)", "Dias Úmidos (%)"],
+        linhas: [[ftChuva.toString().replace(".", ","),
+            ftFrio.toString().replace(".", ","),
+            ftUmidade.toString().replace(".", ",")]]
     });
 }
 
