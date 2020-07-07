@@ -11,7 +11,7 @@
   "author": "bruno",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^6.0.10",
+    "electron": "^7.2.4",
     "electron-packager": "^12.2.0",
     "electron-winstaller": "^2.7.0",
     "electron-wix-msi": "^2.1.1"
